@@ -10,12 +10,13 @@ from movie_infoDAO import movie_infoDAO
 from movie_comment_crawl import movie_comment_crawl
 
 
+# crawl links for comment and movie's information
 class movie_crawler(object):
     def __init__(self, movie_comment_crawl, movie_info_crawl):
         self.movie_comment_crawl = movie_comment_crawl
         self.movie_info_crawl = movie_info_crawl
 
-    # make movie_info link
+    # extract links to get movie's information
     def make_link(self, source):
         temp = source.find('tr')
         first = 'http://movie.naver.com/movie/point/af/list.nhn'
@@ -23,6 +24,7 @@ class movie_crawler(object):
         link = first + second
         return link
 
+    # crawling on pages
     def crawl_page(self):
         count = 1
         while(True):
@@ -44,6 +46,7 @@ class movie_crawler(object):
             self.movie_info_crawl.info_crawl(movie_link)
 
 
+# Operation
 if __name__ == '__main__':
     commentDAO = commentDAO()
     movie_infoDAO = movie_infoDAO()

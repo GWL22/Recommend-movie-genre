@@ -5,10 +5,13 @@ import re
 from bs4 import BeautifulSoup
 
 
+# crawling comments about movie
 class movie_comment_crawl(object):
     def __init__(self, commentDAO):
+        # Duplication of comment saving is prevented
         self.commentDAO = commentDAO
 
+    # get number, movie's title, point and comment
     def show_comment(self, comment_list):
         for item in comment_list.find_all('tr'):
             primary = item.find('td', attrs={'class': 'ac num'}).get_text()

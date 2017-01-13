@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from connection import engine
 
 
+# crawl movie_info from the link made by movie_crawler
 class movie_info_crawl(object):
     def __init__(self, movie_infoDAO):
         self.movie_infoDAO = movie_infoDAO

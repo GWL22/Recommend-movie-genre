@@ -3,17 +3,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-server = 'add your server address'
+server = 'ec2-52-41-252-180.us-west-2.compute.amazonaws.com'
 
-my_id = 'your mysql id'
-my_pw = 'your mysql password'
-my_port = 'your mysql port'
-my_schema = 'your schema name will use'
-connection_string = 'mysql+mysqldb://{}:{}{}:{}/{}'.format(my_id,
-                                                           my_pw,
-                                                           my_port,
-                                                           my_schema,
-                                                           sever)
+connection_string = 'mysql+mysqldb://root:windows48@{}:3306/naver_movie'\
+                    .format(server)
 
 engine = create_engine(connection_string, pool_recycle=3600, encoding='utf-8')
 Session = sessionmaker(bind=engine)

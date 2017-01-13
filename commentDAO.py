@@ -10,6 +10,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
+# check and save if comment crawled is passed
 class commentDAO(object):
     def __init__(self):
         pass
@@ -35,6 +36,7 @@ class commentDAO(object):
             return False
         session.close()
 
+    # check comment whether on DB or not
     def get_comment_by_id(self, comment_id):
         try:
             session = Session()

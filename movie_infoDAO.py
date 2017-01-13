@@ -10,6 +10,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
+# the data crawled checking and save
 class movie_infoDAO(object):
     def __init__(self):
         pass
