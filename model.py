@@ -2,11 +2,12 @@
 
 import sys
 import os
-from sqlalchemy.dialects.mysql import INTEGER
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+
 from sqlalchemy import PrimaryKeyConstraint
 from sqlalchemy import Column, ForeignKey, Integer, CHAR, String
+from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.mysql import INTEGER
+from sqlalchemy.ext.declarative import declarative_base
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -26,5 +27,6 @@ class comments(Base):
 class movie_info(Base):
     __tablename__ = 'movie_info'
 
-    title         = Column(CHAR(200), primary_key=True, nullable=False)
+    title         = Column(CHAR(200), nullable=False)
     genre         = Column(CHAR(200), nullable=False)
+    code          = Column(Integer, primary_key=True, nullable=False)
